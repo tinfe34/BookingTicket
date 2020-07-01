@@ -1,0 +1,4 @@
+    <button class="ghe" [ngClass]="{'gheVip':gheInput.loaiGhe==='Vip',
+    'gheDaDat': gheInput.daDat === true,'gheDangDat':dangDat}" (click)="datGhe()" [disabled]="gheInput.daDat">{{gheInput.tenGhe}}</button>
+
+    <ng-content></ng-content>

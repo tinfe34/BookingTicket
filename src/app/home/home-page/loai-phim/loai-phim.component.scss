@@ -1,0 +1,35 @@
+.showtimes .nav-tabs .nav-item.show .nav-link,.nav-tabs .nav-link.active, .showtimes .nav-tabs .nav-link:hover{
+    border: white;
+   
+}
+.showtimes .nav-tabs .nav-link{
+    position: relative;
+    color: #333;
+    display: block;
+    padding: 10px 20px 15px;
+    letter-spacing: 1px;
+    border: none;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.showtimes .nav-tabs .nav-link::after{
+    content: '';
+    width: 0;
+    height: 3px;
+    background:linear-gradient(to right,#fb4226,#fff) ;
+    position: absolute;
+    left:0;
+    bottom: -1px;
+    transition: all 0.5s; 
+}
+.showtimes .nav-tabs .nav-link.active::after{
+    width: 100%;
+    
+}
+
+.showtimes .nav-tabs .nav-link.active{
+    color:#fb4226;
+
+    transition: all 0.5s; 
+}

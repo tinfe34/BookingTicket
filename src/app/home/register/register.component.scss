@@ -1,0 +1,165 @@
+
+.wraper{
+    background-image: url('https://tix.vn/app/assets/img/icons/bg2.jpg'); 
+    height: 45rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wraper .form-group {
+  margin-bottom: 17px;
+}
+
+  .login-box {
+    width: 400px;
+    padding: 40px;
+    box-sizing: border-box;
+
+    background: rgba(31, 28, 28, 0.71);
+    box-shadow: 1px 1px 50px #000;
+    border-radius: 10px;
+  }
+  
+  .login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+
+// class css validation cua angular
+input.form-control.ng-touched.ng-invalid {
+  border-right: 3px solid red;
+}
+input.form-control.ng-touched.ng-valid {
+  border-right: 3px solid green;
+}
+.color-red{
+    color:red;
+}
+    //input
+    .input-item {
+        background: #000000a8;
+        color: #fff;
+        width: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px 0px 0px 5px;
+    }
+    .form-control:focus {
+
+        border-color: none; 
+
+        box-shadow: none; 
+    }
+// button
+
+  form .btn-anima {
+    position: relative;
+    display: inline-block;
+    background:#000000a8;
+    border:1px solid #fff;
+    padding:5px;
+    color: #ec7532;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+
+    letter-spacing: 4px
+  }
+  
+ 
+  
+  .btn-anima span {
+    position: absolute;
+    display: block;
+  }
+  
+  .btn-anima span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent,#ec7532);
+    animation: btn-anim1 1s linear infinite;
+  }
+  
+  @keyframes btn-anim1 {
+    0% {
+      left: -100%;
+    }
+    50%,100% {
+      left: 100%;
+    }
+  }
+  
+  .btn-anima span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #fbbd61);
+    animation: btn-anim2 1s linear infinite;
+    animation-delay: .25s
+  }
+  
+  @keyframes btn-anim2 {
+    0% {
+      top: -100%;
+    }
+    50%,100% {
+      top: 100%;
+    }
+  }
+  
+  .btn-anima span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #ec7532);
+    animation: btn-anim3 1s linear infinite;
+    animation-delay: .5s
+  }
+  
+  @keyframes btn-anim3 {
+    0% {
+      right: -100%;
+    }
+    50%,100% {
+      right: 100%;
+    }
+  }
+  
+  .btn-anima span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #fbbd61);
+    animation: btn-anim4 1s linear infinite;
+    animation-delay: .75s
+  }
+  
+  @keyframes btn-anim4 {
+    0% {
+      bottom: -100%;
+    }
+    50%,100% {
+      bottom: 100%;
+    }
+  }
+
+  .login-box .btn-anima:hover {
+    background: linear-gradient(to right,#fbbd61,#ec7532);
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px#ec7532;
+    
+
+  }
+  

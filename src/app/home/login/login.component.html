@@ -1,0 +1,60 @@
+<div class="wraper">
+    <div class="login-box">
+        <h3 class="text-center mb-3 text-white">Đăng Nhập</h3>
+        <form [formGroup]='formDangNhap' (ngSubmit)="login()" class="container">
+
+            <div class="form-group">
+                <div class=" input-group">
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <input class="form-control" type="text" placeholder="Tài Khoản" required  maxlength="30"
+                        formControlName="taiKhoan">
+                </div>
+                <!-- Kiểm tra lỗi taiKhoan -->
+                <div *ngIf="formDangNhap.get('taiKhoan').invalid && formDangNhap.get('taiKhoan').touched" class="mt-2 color-red">
+                    <div *ngIf="formDangNhap.get('taiKhoan').errors['required']">
+                        <span >*Vui lòng nhập tài khoản</span>
+                    </div>
+                    <div *ngIf="formDangNhap.get('taiKhoan').errors['pattern']">
+                        <span >*Tài khoản không đúng định dạng</span>
+                    </div>
+                    <div *ngIf="formDangNhap.get('taiKhoan').errors['KhongHopLe']">
+                        <span >*Tài khoản sai với sự thật :(</span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group ">
+                    <span class="input-item">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input class="form-control" type="password" placeholder="Mật Khẩu" required 
+                        maxlength="15" formControlName="matKhau" />
+                </div>
+                <!-- Kiểm tra lỗi matKhau , div hien thi khi so sánh trả về là true -->
+                <div *ngIf="formDangNhap.get('matKhau').invalid && formDangNhap.get('matKhau').touched" class="mt-2 color-red">
+                    <div *ngIf="formDangNhap.get('matKhau').errors['required']">
+                        <span>*Vui lòng nhập mật khẩu</span>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-control custom-checkbox my-3">
+                <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                <label class="custom-control-label text-primary" for="defaultUnchecked">Lưu tài khoản?</label>
+            </div>
+            <div class="form-group">
+                <button class="btn-anima"  type="submit">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Submit
+                </button>
+                <button class="loginBtn loginBtn--facebook mt-3">
+                    Login with Facebook
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

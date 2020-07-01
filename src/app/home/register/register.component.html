@@ -1,0 +1,113 @@
+<div class="wraper">
+    <div class="login-box">
+        <h3 class="text-center mb-3 text-white">Đăng Ký</h3>
+        <form #formDangKy="ngForm" (ngSubmit)="DangKy(formDangKy.value)">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-item">
+                        <i class="fa fa-male"></i>
+                    </span>
+                    <input class="form-control" type="text" placeholder="Họ Tên" name='hoTen' required  minlength="6" maxlength="30" #hoten='ngModel'
+                       [pattern]='"^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +
+                       "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" +
+                       "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$"' ngModel />
+                </div>
+                <!-- Kiểm tra lỗi họ tên -->
+                <div *ngIf="hoten.errors && (hoten.touched ||hoten.dirty)" class="mt-2 color-red">
+                    <div *ngIf="hoten.errors.required">
+                        <span >*Vui lòng nhập họ tên</span>
+                    </div>
+                    <div *ngIf="hoten.errors.pattern">
+                        <span >*Họ tên không hợp lệ</span>
+                    </div>
+                    <div *ngIf="hoten.errors.minlength">
+                        <span >*Họ tên phải từ 5 kí tự trở lên</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-item">
+                        <i class="fa fa-user-circle"></i>
+                    </span>
+                    <input class="form-control" type="text" placeholder="Tài Khoản" name='taiKhoan' required #taikhoan='ngModel'
+                        ngModel>
+                </div>
+                <!-- Kiểm tra lỗi tài khoản -->
+                <div *ngIf="taikhoan.errors && (taikhoan.touched ||taikhoan.dirty)" class="mt-2 color-red">
+                    <div *ngIf="taikhoan.errors.required">
+                        <span>*Vui lòng nhập tài khoản</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-item">
+                        <i class="fa fa-key"></i>
+                    </span>
+                    <input class="form-control" type="password" placeholder="Mật Khẩu" name='matKhau' required minlength="6" maxlength="15" #matkhau='ngModel'
+                        ngModel />
+                </div>
+                <!-- Kiểm tra lỗi mật khẩu -->
+                <div *ngIf="matkhau.errors && (matkhau.touched ||matkhau.dirty)" class="mt-2 color-red">
+                    <div *ngIf="matkhau.errors.required">
+                        <span >*Vui lòng nhập mật khẩu</span>
+                    </div>
+                    <div *ngIf="matkhau.errors.minlength||matkhau.errors.maxlength">
+                        <span >*Mật khẩu phải từ 6-15 kí tự</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-item">
+                        <i class="fa fa-envelope"></i>
+                    </span>
+                    <input class="form-control" type="text" placeholder="Email" name='email' required [pattern]= '"^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+                    + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$"' #email='ngModel' ngModel />
+                </div>
+                <!-- Kiểm tra lỗi email -->
+                <div *ngIf="email.errors && (email.touched ||email.dirty)" class="mt-2 color-red">
+                    <div *ngIf="email.errors.required">
+                        <span >*Vui lòng nhập email</span>
+                    </div>
+                    <div *ngIf="email.errors.pattern">
+                        <span >*Email không hợp lệ</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-item">
+                        <i class="fa fa-phone"></i>
+                    </span>
+                    <input class="form-control" type="text" placeholder="Số Điện Thoại" name='soDt' maxlength="20"  [pattern]='"^(0|[1-9][0-9]*)$"' required #sdt='ngModel' ngModel />
+                </div>
+                <!-- Kiểm tra lỗi sdt -->
+                <div *ngIf="sdt.errors && (sdt.touched ||sdt.dirty)" class="mt-2 color-red">
+                    <div *ngIf="sdt.errors.required">
+                        <span >*Vui lòng nhập số điện thoại</span>
+                    </div>
+                    <div *ngIf="sdt.errors.pattern">
+                        <span >*Số điện thoại không hợp lệ</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button class="btn-anima" type="submit">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Submit
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>

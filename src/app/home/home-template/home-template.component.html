@@ -1,0 +1,75 @@
+<div class="container">
+    <header class="start-header">
+        <nav class="navbar navbar-expand-md navbar-light  myNavbar">
+
+            <a class="navbar-brand" [routerLink]="['/home']"><img src="https://tix.vn/app/assets/img/icons/web-logo.png"
+                    alt=""></a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto py-4 py-md-0">
+                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                        <a class="nav-link" href="#">Lịch Chiếu</a>
+                    </li>
+                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                        <a class="nav-link" href="#">Cụm Rạp</a>
+                    </li>
+                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                        <a class="nav-link" href="#">Tin Tức</a>
+                    </li>
+                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                        <a class="nav-link" href="#">Ứng Dụng</a>
+                    </li>
+                </ul>
+                <!-- Chưa login thì mặc định,  login rồi thì bị ẩn -->
+                <div *ngIf="status; else isLogin ">
+                    <button type="button" class="btn btn-primary btn-sm mr-2" [routerLink]="['/login']">Đăng
+                        Nhập</button>
+                    <button type="button" class="btn btn-primary btn-sm" [routerLink]="['/register']">Đăng Ký</button>
+                </div>
+                <!-- Login thành công rồi thì hiển thị cái này cho tui -->
+                <ng-template #isLogin>
+                    <div class="btn-group"
+                        style="padding: 10px 30px 10px 0px;margin-left: 10px;color:#e4362b;font-weight: 500;cursor: pointer;">
+                        <div class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="http://lms.myclass.vn/pluginfile.php/10325/user/icon/lambda/f1?rev=97402"
+                                alt="Hình của Hữu Tín Lê" title="Hình của Hữu Tín Lê" class="welcome_userpicture"
+                                width="40" height="40" style="border-radius:50%">
+                            <span style="margin-left: 10px">Hi,{{userLogin.hoTen}}</span>
+                        </div>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" routerLink="/profile">Thông tin cá nhân</a>
+                            <a class="dropdown-item" routerLink="/booking-hictory">Lịch sử đặt vé</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" (click)="DangXuat()">Đăng Xuất</a>
+                        </div>
+                    </div>
+                </ng-template>
+
+            </div>
+        </nav>
+    </header>
+</div>
+
+
+
+<div style="margin-top: 79px">
+    <router-outlet></router-outlet> <!-- home-module mặc định hiễn thị ra trang home-page -->
+</div>
+<footer style="background-color: #222;">
+    <div class="container pt-3">
+        <div class="row w-100">
+            <div class="col-6">
+                <p class="text-white">© Bản quyền CyberSoft 2020</p>
+            </div>
+            <div class="col-6 text-right">
+                <i class="social-fb mr-2 fa fa-facebook"></i>
+                <i class="social-yt fa fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+</footer>

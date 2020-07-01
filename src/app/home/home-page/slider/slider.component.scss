@@ -1,0 +1,55 @@
+.movieCarousel .carousel-indicators li{
+    width: 12px;
+    height:13px;
+    background-color:white ;
+    border-radius: 50%;
+    opacity: 1;
+       
+}
+
+.movieCarousel .carousel-indicators li.active{
+    background-color: #fb4226;
+}
+.movieCarousel .carousel-indicators{
+    z-index: 3;
+}
+.carousel-indicators{
+    margin-bottom: 2.5rem;
+}
+
+
+.movieCarousel .icon-play {
+    position: absolute;
+    top:40%;
+    left: 49%;
+    color: #ffffff;
+    font-size: 50px;
+    text-shadow: 0px 0px 20px #6abcea, 0px 5px 20px #6ABCEA;
+    opacity: .85;
+    transition: all 300ms;
+
+}
+.movieCarousel .icon-play a{
+    color:#fff;
+}
+.movieCarousel .icon-play a:hover{
+    color:#fff;
+}
+.movieCarousel .icon-play:hover {
+    font-size: 60px;
+    text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    opacity: 1;
+    transition: all 300ms;
+}
+.movieCarousel img {
+    max-width: 100%;
+    min-height: 350px;
+}
+//modal youtube
+
+
+@media screen and (max-width:576px){
+
+}

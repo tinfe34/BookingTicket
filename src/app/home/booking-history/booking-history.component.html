@@ -1,0 +1,23 @@
+<section class="hictory">
+    <div class="container py-5">
+
+        <table class="table" width=100%;>
+            <thead>
+                <tr>
+                    <th>Tên Phim</th>
+                    <th>Mã Vé</th>
+                    <th>Giá Vé</th>
+                    <th>Ngày Đặt</th>
+                </tr>
+            </thead>
+            <tbody >
+                <tr *ngFor="let ve of objUser.thongTinDatVe">
+                    <td> {{ve.tenPhim}} </td>
+                    <td>{{ve.maVe}}</td>
+                    <td>{{ve.giaVe}}</td>
+                    <td>{{ve.ngayDat| date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
