@@ -1,123 +1,110 @@
-
-.wrapper .card {
-    border-radius: 15px;
-    position: relative;
-    overflow: hidden;
-
-    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
-}
-
-.wrapper:hover .card {
-    box-shadow: 0px 5px 20px #6abcea52;
-    transition: all 300ms;
-    height: 450px;
-   
-}
-
-.wrapper  .play{
-    position: absolute;
-    color: #ffffff;
-    font-size: 40px;
-    text-shadow: 0px 0px 20px #6abcea, 0px 5px 20px #6ABCEA;
-    opacity: .85;
-    transition: all 300ms;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.wrapper  .play a{
-    color:#fff;
-}
-.wrapper  .play a:hover{
-    color:#fff;
-}
-.wrapper:hover .play{
-    font-size: 54px;
-    text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
-    opacity: 1;
-    transition: all 300ms;
-    background: rgba(0, 0, 0, 0.15);
-}
-.wrapper .header-card {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-
-.card-title p {
-    font-size: 22px;
-    font-weight: 500;
-    color: #000;
-    transition: all 0,25s;
-    letter-spacing: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.card-title p::before{
-    background-color: #fb4226;
-    content: 'P';
-    color: #fff;
-    border-radius: 4px;
-    padding: 0 5px;
-    float: left;
-    margin-right: 5px;
-    font-size: 15px;
-    vertical-align: 2px;
-    min-width: 30px;
-    text-align: center;
-  
-  }
-
-.card-title label{
-    color: rgba(0, 0, 0, 0.5);
-    margin-bottom: .5em;
-    font-size: 10px;
-    font-weight: bold;
-}
-.card-title span{
-    font-weight: bold;
-    font-size: 12px;
-}
-
-
-.wrapper:hover p,.wrapper:hover label,.wrapper:hover span{
-    display: none;
-    transition: all 0,25s;
-}
-
-// button
-.card-title button{
-
-display: none;
-background: linear-gradient(to right,#fbbd61,#ec7532);
-color: #fff;
-display: none;
-width: 100%;
-letter-spacing: 3px;
-line-height: 2rem;
-font-size: 25px;
-border-radius: 5px;
-border: none;
-box-shadow: 0 0 5px#ec7532;
-border:1px solid #fff;
-padding:5px;
-margin-top: 20px;
-}
-.card-title button:focus {
-    outline: none;
-}
-
-.wrapper:hover .card-title button{
-    display:block;
-
-    transition: all 300ms;
-}
-//modal youtube
-
+        .card {
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+            height: 430px;
+            .header-card {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .play {
+                    position: absolute;
+                    transition: all 300ms;
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    i {
+                        color: #fff;
+                        font-size: 40px;
+                        text-shadow: 0px 0px 20px #6abcea, 0px 5px 20px #6ABCEA;
+                        opacity: .85;
+                    }
+                }
+            }
+            .card-body {
+                .card-title {
+                    p {
+                        font-size: 22px;
+                        font-weight: 500;
+                        color: #000;
+                        transition: all 0, 25s;
+                        letter-spacing: 2px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        &::before {
+                            background-color: #fb4226;
+                            content: 'P';
+                            color: #fff;
+                            border-radius: 4px;
+                            padding: 0 5px;
+                            float: left;
+                            margin-right: 5px;
+                            font-size: 15px;
+                            vertical-align: 2px;
+                            min-width: 30px;
+                            text-align: center;
+                        }
+                    }
+                    label {
+                        color: rgba(0, 0, 0, 0.5);
+                        margin-bottom: .5em;
+                        font-size: 10px;
+                        font-weight: bold;
+                    }
+                    button {
+                        background: linear-gradient(to right, #fbbd61, #ec7532);
+                        color: #fff;
+                        display: none;
+                        width: 100%;
+                        letter-spacing: 3px;
+                        line-height: 2rem;
+                        font-size: 25px;
+                        border-radius: 5px;
+                        border: none;
+                        box-shadow: 0 0 5px#ec7532;
+                        border: 1px solid #fff;
+                        padding: 10px;
+                        transition: all 300ms;
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+                }
+            }
+            &:hover {
+                box-shadow: 0px 5px 20px #6abcea52;
+                transition: all 300ms;
+                .header-card {
+                    .play {
+                        transition: all 300ms;
+                        background: rgba(0, 0, 0, 0.15);
+                        i {
+                            color: #fff;
+                            font-size: 54px;
+                            text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
+                            opacity: 1;
+                            transition: all 300ms;
+                        }
+                    }
+                }
+                .card-body {
+                    .card-title {
+                        p,
+                        label,
+                        span {
+                            display: none;
+                            transition: all 300ms;
+                        }
+                        button {
+                            display: block;
+                            transition: all 300ms;
+                        }
+                    }
+                }
+            }
+        }

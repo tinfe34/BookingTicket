@@ -1,39 +1,4 @@
-/* You can add global styles to this file, and also import other style files */
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-}
-
-body{
-    font-family: 'Poppins', sans-serif;
-	font-size: 16px;
-	line-height: 24px;
-	font-weight: 400;
-	color: #212112;
-}
-header, section, footer, aside, nav, main, article, figure {
-    display: block;
-}
-
-
-/* Please ❤ this if you like it! */
-
-
-@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
-
-
-
-.modal {
-    overflow: initial !important;
-    max-width: 80% !important;
-    max-height: 90% !important;
-    padding: 0 !important;
-    z-index: 4 !important;
-}
-.blocker{
-    z-index: 4 !important;
-}
+@import'./sass/Base/reset';
 
 
  

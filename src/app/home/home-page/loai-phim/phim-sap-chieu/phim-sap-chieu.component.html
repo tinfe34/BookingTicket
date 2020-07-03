@@ -1,12 +1,5 @@
-
-
-
-    <owl-carousel-o id="owl-carousel" [options]="customOptions">
-   
-      <ng-container *ngFor="let phim of mangPhim ">
-        <ng-template carouselSlide>
-            <app-item-phim [phimItem]="phim" ></app-item-phim>
-        </ng-template>
-      </ng-container>
-   
-    </owl-carousel-o>
+<div class="row">
+    <ng-container *ngFor="let phim of mangPhim.slice(0,8)">
+        <app-item-phim class="col-6 col-md-4 col-lg-3 mb-5" [phimItem]="phim"></app-item-phim>
+    </ng-container>
+</div>

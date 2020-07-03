@@ -1,0 +1,33 @@
+@mixin text($fw,$fs,$lh,$hover-color) {
+    font-weight: $fw;
+    line-height: $lh;
+    font-size: $fs;
+    &:hover{
+        color:$hover-color;
+    }
+}
+
+@mixin button($color,$bg-color,$bg-color-hover,$color-hover,$border){
+    
+    color: $color;
+    background-color:$bg-color ;
+    border:$border;
+    cursor: pointer;
+    &:hover{
+        background-color:$bg-color-hover ;
+        color:$color-hover;
+    }
+
+}
+
+ @mixin mediaQuery($screen){
+    @if map-has-key($map: $breakpoints, $key: $screen ){
+        $value: map-get($map: $breakpoints , $key: $screen );
+        @media screen and (max-width:$value) {
+            @content;
+        }
+    }
+    @else{
+        @warn 'Kich thuoc khong hop le'
+    }
+}

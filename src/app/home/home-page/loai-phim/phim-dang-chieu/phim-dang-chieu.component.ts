@@ -11,14 +11,20 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 })
 export class PhimDangChieuComponent implements OnInit {
 
+  mangPhim:any[] = [];
+  constructor(private phimService:QuanLyPhimService) { }
 
   ngOnInit(): void {
   
-   
-  }
-
-  ngAfterViewInit(){
-
+    this.phimService.LayDanhSachPhim().subscribe(
+      (result)=>{
+       this.mangPhim = result;
+          console.log(result)
+      },
+      (err)=>{
+        console.log(err)
+      }
+    )
   }
 
   

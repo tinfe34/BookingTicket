@@ -1,77 +1,71 @@
-<div class="row wrapper my-5">
-    <!-- navtab1 -->
-    <div class="col-2 col-md-2 col-lg-1 p-0 nav-parent">
-        <div class="nav flex-column nav-pills" id="v-pills-tab1" role="tablist" aria-orientation="vertical">
+<section class="showing-detail my-5">
+    <div class="row">
+        <!-- navtab1 -->
+        <div class="col-2 col-md-2 col-lg-1 nav-parent">
+            <div class="nav flex-column nav-pills" id="v-pills-tab1" role="tablist" aria-orientation="vertical">
 
-            <a *ngFor="let rap of rapPhim ; let i = index" class="nav-link" id="v-{{rap.maHeThongRap}}"
-                [ngClass]="{'active':i==0}" data-toggle="pill" href="#{{rap.maHeThongRap}}" role="tab"
-                aria-selected="true">
-                <img [src]="rap.logo" alt="">
-                <hr>
-            </a>
-
-        </div>
-    </div>
-    <!-- content1 -->
-    <div class="col-10 col-md-10 col-lg-11">
-        <div class="tab-content" id="v-pills-tabContent1">
-            <div class="row">
-                <div class="col-12">
-                    <div class="tab-content" id="v-pills-tabContent1">
-                        <div *ngFor="let rap of lichChieu; let i=index" class="tab-pane fade" id="{{rap.maHeThongRap}}"
-                            role="tabpanel" [ngClass]="{'show':i==0,'active':i==0}">
-                            <div class="row">
-
-                                <!-- navtab2 -->
-                                <div class="col-5 col-sm-4 col-md-4 col-lg-3 p-0 nav-child">
-                                    <div class="nav flex-column nav-pills" id="v-pills-tab2" role="tablist"
-                                        aria-orientation="vertical">
-                                        <a *ngFor="let lst of rap.lstCumRap.slice(0,5); let i =index" class="nav-link"
-                                            [ngClass]="{'active':i==0}" id="v-{{lst.maCumRap}}" data-toggle="pill"
-                                            href="#{{lst.maCumRap}}" role="tab" aria-selected="true">
-                                            <p class="rap">{{lst.tenCumRap}}</p>
-                                                <span class="address">{{lst.diaChi}}</span>
-                                            <hr>
-                                        </a>
-
-                                    </div>
-                                </div>
-
-                                <!-- content2 -->
-                                <div class="col-7 col-sm-8 col-md-8 col-lg-9">
-                                    <div class="tab-content" id="v-pills-tabContent2;">
-                                        <div *ngFor="let lstRap of rap.lstCumRap;let ii=index" class="tab-pane fade"
-                                            id="{{lstRap.maCumRap}}" role="tabpanel"
-                                            [ngClass]="{'show':ii==0,'active':ii==0}">
-                                            <ng-container *ngFor="let dsPhim of lstRap.danhSachPhim">
-                                                <div class="phim mt-3">
-                                                    <p class="title">{{dsPhim.tenPhim}}</p>
-                                                </div>
-                                                <div class="row mx-0 mx-md-2">
-                                                    <ng-container
-                                                        *ngFor="let lichChieu of dsPhim.lstLichChieuTheoPhim.slice(0,12)">
-                                                            <button class="btn-anima m-2" routerLink='/ticketRoom/{{lichChieu.maLichChieu}}'>
-                                                                <span></span>
-                                                                <span></span>
-                                                                <span></span>
-                                                                <span></span>
-                                                                {{lichChieu.ngayChieuGioChieu | date:'hh:mm'}}
-                                                            </button>
-                                                    </ng-container>
-                                                </div>
-                                                <hr>
-                                            </ng-container>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
+                <a *ngFor="let rap of rapPhim ; let i = index" class="nav-link" id="v-{{rap.maHeThongRap}}" [ngClass]="{'active':i==0}" data-toggle="pill" href="#{{rap.maHeThongRap}}" role="tab" aria-selected="true">
+                    <img [src]="rap.logo" alt="">
+                </a>
 
             </div>
         </div>
+        <!-- content1 -->
+        <div class="col-10 col-md-10 col-lg-11 content-parent">
+            <div id="v-pills-tabContent1">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="tab-content" id="v-pills-tabContent1">
+                            <div *ngFor="let rap of lichChieu; let i=index" class="tab-pane fade" id="{{rap.maHeThongRap}}" role="tabpanel" [ngClass]="{'show':i==0,'active':i==0}">
+                                <div class="row">
+
+                                    <!-- navtab2 -->
+                                    <div class="col-5 col-sm-4 col-md-4 col-lg-3 p-0 nav-child">
+                                        <div class="nav flex-column nav-pills" id="v-pills-tab2" role="tablist" aria-orientation="vertical">
+                                            <a *ngFor="let lst of rap.lstCumRap.slice(0,5); let i =index" class="nav-link" [ngClass]="{'active':i==0}" id="v-{{lst.maCumRap}}" data-toggle="pill" href="#{{lst.maCumRap}}" role="tab" aria-selected="true">
+                                                <p class="rap">{{lst.tenCumRap}}</p>
+                                                <span class="address">{{lst.diaChi}}</span>
+                                            </a>
+
+                                        </div>
+                                    </div>
+
+                                    <!-- content2 -->
+                                    <div class="col-7 col-sm-8 col-md-8 col-lg-9 content-child">
+                                        <div class="tab-content" id="v-pills-tabContent2;">
+                                            <div *ngFor="let lstRap of rap.lstCumRap;let ii=index" class="tab-pane fade" id="{{lstRap.maCumRap}}" role="tabpanel" [ngClass]="{'show':ii==0,'active':ii==0}">
+                                                <ng-container *ngFor="let dsPhim of lstRap.danhSachPhim">
+
+                                                    <div class="phim">
+
+                                                        <p>{{dsPhim.tenPhim}}</p>
+
+                                                    </div>
+
+                                                    <div class="row mx-0 mx-md-2">
+                                                        <ng-container *ngFor="let lichChieu of dsPhim.lstLichChieuTheoPhim.slice(0,12)">
+                                                            <button class="btn-anima m-2" routerLink='/ticketRoom/{{lichChieu.maLichChieu}}'>
+                                                            <span></span>
+                                                        <span></span>
+                                                        <span></span>
+                                                        <span></span> {{lichChieu.ngayChieuGioChieu | date:'hh:mm'}}
+                                                        </button>
+                                                        </ng-container>
+                                                    </div>
+                                                    <hr>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>
