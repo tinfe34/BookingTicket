@@ -52,22 +52,26 @@ export class TicketRoomComponent implements OnInit {
       "taiKhoanNguoiDung": userLogin.taiKhoan
     }
     console.log(objectDatVe);
-    this.filmService.datVe(objectDatVe).subscribe((res:any)=>{
 
-      swal({
-        icon: "success",
-         title: "Dat ve thanh cong",
-      }).then(res=>{
-        location.reload();
-      });
-    },err=>{
-      swal({
-        icon: "error",
-         title: "dat ve that bai",
-      })
-
+if(this.dsGheDangDat.length != 0){
+  this.filmService.datVe(objectDatVe).subscribe((res:any)=>{
+    swal({
+      icon: "success",
+       title: "Dat ve thanh cong",
+    }).then(res=>{
+      location.reload();
+    });
+  },err=>{
+    swal({
+      icon: "error",
+       title: "dat ve that bai",
     })
-
+  })
+}
+swal({
+      icon: "error",
+       title: "Vui long chon ghe",
+    })
   }
   tinhTongTien(){
     return this.dsGheDangDat.reduce((tongTien,ghe,index)=>{

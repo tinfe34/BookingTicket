@@ -1,114 +1,107 @@
-<div class="wrapper_top" >
-    <div class="profile-image" [ngStyle]="{ 'background-image': 'url(' + phim.hinhAnh + ')'}">
+<div class="fiml-detail">
+    <div class="detail_top w-100">
+        <div class="bg-top" [ngStyle]="{ 'background-image': 'url(' + phim.hinhAnh + ')'}">
+        </div>
+        <div class="styleGradient"></div>
+        <!-- avatar -->
+
+        <div class="content ml-3 ml-md-0 ">
+            <img class="avatar" [src]="phim.hinhAnh" alt="">
+            <div class="title text-white ml-5">
+                <h2>{{phim.tenPhim}}</h2>
+                <p>Khởi Chiếu: <span>{{phim.ngayKhoiChieu| date}}</span> </p>
+                <button class="btn myBtn btn-success" style="width: 100%;height:45px;margin-bottom: 10px;">
+                       <a (click)="toBy()"> Mua vé</a>
+                </button>
+                <button class="myBtn btn btn-outline-success" style="width: 100%;height:45px;">Xem Trailer</button>
+            </div>
+        </div>
+
     </div>
-    <div class="styleGradient"></div>
-    <!-- avatar -->
-    <div class="detail ml-3 ml-md-0">
-        <div class="avatar">
-            <img [src]="phim.hinhAnh" alt="">
-        </div>
-        <div class="title text-white ml-5">
-            <h1>{{phim.tenPhim}}</h1>
-            <p>Khởi Chiếu: <span>{{phim.ngayKhoiChieu| date}}</span> </p>
-            <button class="btn-lg btn-success">
-               <a (click)="toBy()"> Mua vé</a></button>
-        </div>
-    </div>
+    <div class="detail_bottom pb-3">
+        <div class="container">
+            <!-- nav-parent -->
+            <div class="nav-parent">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#lich-chieu" role="tab" aria-controls="pills-home" aria-selected="true">Lịch Chiếu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#thong-tin" role="tab" aria-controls="pills-profile" aria-selected="false">Thông Tin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#danh-gia" role="tab" aria-controls="pills-contact" aria-selected="false">Đánh Giá</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- content-parent-->
+            <div class="content-parent">
+                <div class="tab-content" id="pills-tabContent">
+                    <!-- lich chieu -->
+                    <div class="tab-pane fade show active" id="lich-chieu" role="tabpanel" aria-labelledby="pills-home-tab">
+                        <ng-container *ngIf="phim.heThongRapChieu;else dkElse">
+                            <div class="lich_chieu">
+                                <div class="row">
+                                    <!--nav-child -->
+                                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 pr-0" style="border-right: 1px solid #ebebec;">
+                                        <div class="nav-child">
+                                            <div class="nav flex-column nav-pills " id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                                                <a *ngFor="let heThongRap of phim.heThongRapChieu; let i=index" class="nav-link" [ngClass]="{'active':i==0}" id="v-{{heThongRap.maHeThongRap}}" data-toggle="pill" href="#{{heThongRap.maHeThongRap}}" role="tab" aria-controls="v-pills-home" aria-selected="true">
+                                                    <img [src]="heThongRap.logo" class=" logo mx-3" alt="">{{heThongRap.tenHeThongRap}}
+                                                    <hr>
+                                                </a>
 
-</div>
-<div class="wrapper_bottom pb-3" >
-    <div class="container">
-        <!-- nav-tab1 -->
-        <div class="tab-parent">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#lich-chieu" role="tab"
-                        aria-controls="pills-home" aria-selected="true">Lịch Chiếu</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#thong-tin" role="tab"
-                        aria-controls="pills-profile" aria-selected="false">Thông Tin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#danh-gia" role="tab"
-                        aria-controls="pills-contact" aria-selected="false">Đánh Giá</a>
-                </li>
-            </ul>
-        </div>
-        <!-- tab-content1 -->
-        <div class="tab-content" id="pills-tabContent">
-            <!-- lich chieu -->
-            <div class="tab-pane fade show active" id="lich-chieu" role="tabpanel" aria-labelledby="pills-home-tab">
+                                            </div>
+                                        </div>
 
-                <ng-container *ngIf="phim.heThongRapChieu.length;else dkElse">
-                    <div class="myTab">
-                        <div class="row">
-                            <!-- Ten Rap -->
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-3 pr-0" style="border-right: 1px solid #ebebec;">
-                                <!-- nav-tab2 -->
-                                <div class="nav flex-column nav-pills logo" id="v-pills-tab" role="tablist"
-                                    aria-orientation="vertical">
-                                    <a *ngFor="let heThongRap of phim.heThongRapChieu; let i=index" class="nav-link"
-                                        [ngClass]="{'active':i==0}" id="v-{{heThongRap.maHeThongRap}}"
-                                        data-toggle="pill" href="#{{heThongRap.maHeThongRap}}" role="tab"
-                                        aria-controls="v-pills-home" aria-selected="true">
-                                        <img [src]="heThongRap.logo" class="mx-3" alt="">{{heThongRap.tenHeThongRap}}
-                                        <hr>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <!-- Noi dung Rap -->
-                            <div class="col-6 col-sm-6 col-md-8 col-lg-9">
-                                <!-- tab-content2 -->
-                                <div class="tab-content" id="v-pills-tabContent">
-                                    <div *ngFor="let heThongRap of phim.heThongRapChieu; let i= index"
-                                        class="tab-pane fade  " [ngClass]="{'show':i==0,'active':i==0}"
-                                        id="{{heThongRap.maHeThongRap}}" role="tabpanel"
-                                        aria-labelledby="v-pills-settings-tab">
-                                        <!--For lồng Load chi nhánh cụm rạp chiếu-->
-                                        <ng-container *ngIf="heThongRap.cumRapChieu">
-                                            <div *ngFor="let cumRapChieu of heThongRap.cumRapChieu" class="content">
-                                                <div class="title">
-                                                    <img [src]="heThongRap.logo" alt="">
-                                                    <span>{{cumRapChieu.tenCumRap }}</span>
-                                                </div>
-                                                <div class="row time px-1">
-                                                    <ng-container
-                                                        *ngFor="let lichChieu of cumRapChieu.lichChieuPhim.slice(0,12)">
-
-                                                        <button class="btn-anima m-2"
-                                                            routerLink='/ticketRoom/{{lichChieu.maLichChieu}}'>
-                                                            <span></span>
-                                                            <span></span>
-                                                            <span></span>
-                                                            <span></span>
-                                                            {{lichChieu.ngayChieuGioChieu | date:'hh:mm'}}
-                                                        </button>
+                                    </div>
+                                    <!-- content-child -->
+                                    <div class="col-6 col-sm-6 col-md-8 col-lg-9">
+                                        <div class="content-child">
+                                            <div class="tab-content" id="v-pills-tabContent">
+                                                <div *ngFor="let heThongRap of phim.heThongRapChieu; let i= index" class="tab-pane fade  " [ngClass]="{'show':i==0,'active':i==0}" id="{{heThongRap.maHeThongRap}}" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                                                    <!--For lồng Load chi nhánh cụm rạp chiếu-->
+                                                    <ng-container *ngIf="heThongRap.cumRapChieu">
+                                                        <ng-container *ngFor="let cumRapChieu of heThongRap.cumRapChieu">
+                                                            <div class="booking-title">
+                                                                <img [src]="heThongRap.logo" alt="">
+                                                                <span>{{cumRapChieu.tenCumRap }}</span>
+                                                            </div>
+                                                            <div class="row booking-time px-1">
+                                                                <ng-container *ngFor="let lichChieu of cumRapChieu.lichChieuPhim.slice(0,12)">
+                                                                    <button class="btn-anima m-2" routerLink='/ticketRoom/{{lichChieu.maLichChieu}}'>
+                                                                        <span></span>
+                                                                        <span></span>
+                                                                        <span></span>
+                                                                        <span></span>
+                                                                        {{lichChieu.ngayChieuGioChieu | date:'hh:mm'}}
+                                                                    </button>
+                                                                </ng-container>
+                                                            </div>
+                                                        </ng-container>
                                                     </ng-container>
                                                 </div>
-                                                <hr>
                                             </div>
-                                        </ng-container>
+                                        </div>
+
                                     </div>
+
                                 </div>
                             </div>
-
-                        </div>
+                        </ng-container>
+                        <ng-template #dkElse>
+                            <p class="text-dark"> Chưa có suất chiếu !</p>
+                        </ng-template>
                     </div>
-                </ng-container>
-                <ng-template #dkElse>
-                    <p class="text-dark"> Chưa có suất chiếu !</p>
-                </ng-template>
-            </div>
-            <!-- mo ta -->
-            <div class="tab-pane fade" id="thong-tin" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <p class="text-white">{{phim.moTa}}</p>
-            </div>
-            <!-- danh gia -->
-            <div class="tab-pane fade" id="danh-gia" role="tabpanel" aria-labelledby="pills-contact-tab">
-                <p class="text-white">chưa có đánh
-                    giá nào!!!</p>
+                    <!-- mo ta -->
+                    <div class="tab-pane fade" id="thong-tin" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <p class="text-white">{{phim.moTa}}</p>
+                    </div>
+                    <!-- danh gia -->
+                    <div class="tab-pane fade" id="danh-gia" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        <p class="text-white">chưa có đánh giá nào!!!</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -7,6 +7,7 @@ import { QuanLyNguoiDungService } from 'src/app/_core/services/quan-ly-nguoi-dun
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  isDisabled:boolean = true;
 
   public objUser:any;
   constructor(private ngDungService: QuanLyNguoiDungService) {
@@ -28,5 +29,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
+isEdit(){
+  this.isDisabled = false;
+}
 }

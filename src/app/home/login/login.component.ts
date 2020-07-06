@@ -3,9 +3,10 @@ import { UserLogin } from 'src/app/_core/models/userLogin';
 import { QuanLyNguoiDungService } from 'src/app/_core/services/quan-ly-nguoi-dung.service';
 import { setting } from 'src/app/_core/common/config/setting';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter, pairwise } from 'rxjs/operators';
 import swal from 'sweetalert';
-
+import { RouteEventsService } from 'src/app/_core/services/route-events.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -16,9 +17,10 @@ export class LoginComponent implements OnInit {
   public TaiKhoanKhongHopLe: Array<string> = ['tinxautrai', 'tinxauxi']; //Mãng dùng cho validation 
 
   public formDangNhap: FormGroup; //Khởi tạo react form kiểu dữ liệu FormGroup
-
-  constructor(private ngDungService: QuanLyNguoiDungService, private router: Router) {
-
+  previousUrl: string;
+  currentUrl:string;
+  constructor(private ngDungService: QuanLyNguoiDungService,private routeEventsService: RouteEventsService, private router: Router) {
+   
   }
 
   // Khởi tạo đối tượng reactiveForm đê lấy  dữ liệu, dữ liệu ban đầu null
@@ -45,7 +47,7 @@ export class LoginComponent implements OnInit {
                title: "Đăng nhập thành công",
             });
                 //Chuyển hướng đăng nhập
-                this.router.navigate(['/home']);
+                this.router.navigate([this.routeEventsService.previousRoutePath.value]);
 
         }, (err) => {
           swal({

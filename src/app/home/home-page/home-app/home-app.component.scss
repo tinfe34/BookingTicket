@@ -1,62 +1,67 @@
-.wrapHomeApp{
+.HomeApp{
     background-image: url(https://tix.vn/app/assets/img/icons/backapp.jpg);
     background-size: contain;
     padding: 120px 0 80px 0;
+    .mainMaxWidth{
+        max-width: 940px;
+        float: none;
+        margin: auto;
+        clear: both;
+        .left{
+
+            .textLeft {
+                color: #fff;
+                font-weight: 700;
+                font-size: xx-large;
+            }
+            .textSmallLeft {
+                color: #fff;
+                font-size: medium;
+            }
+            .buttonLeft {
+                background-color: #fb4226;
+                padding: 10px 20px;
+                color: #fff;
+                font-size: medium;
+                font-weight: 700;
+                border: none;
+                border-radius: 4px;
+            }
+            .textAppUnder {
+                color: #fff;
+                padding-top: 10px;
+            }
+            .tagA {
+                color: #fff;
+                border-bottom: 1px solid #fff;
+                cursor: hand;
+            }            
+        }
+        .right{
+            position: relative;
+            padding: 0;
+          .phone-img {
+                padding: 0 28%;
+                display: block;
+                max-width: 100%;
+                height: auto;
+            }
+            #sliderScreen img {
+            width: 100%;
+            border-radius: 25px;
+            }
+            #sliderScreen{
+                position: absolute;
+            padding: 1.5% 29.3% 0 29.3%;
+            top: 0;
+            left: 0;
+            }
+        }
+    }
 }
 
-.mainMaxWidth{
-    max-width: 940px;
-    float: none;
-    margin: auto;
-    clear: both;
-}
-
-.textLeft {
-    color: #fff;
-    font-weight: 700;
-    font-size: xx-large;
-}
-.textSmallLeft {
-    color: #fff;
-    font-size: medium;
-}
-.buttonLeft {
-    background-color: #fb4226;
-    padding: 10px 20px;
-    color: #fff;
-    font-size: medium;
-    font-weight: 700;
-    border: none;
-    border-radius: 4px;
-}
-.textAppUnder {
-    color: #fff;
-    padding-top: 10px;
-}
-.tagA {
-    color: #fff;
-    border-bottom: 1px solid #fff;
-    cursor: hand;
-}
 
 
-.right {
-    position: relative;
-    padding: 0;
-}   
-.right .phone-img {
-    padding: 0 28%;
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-#sliderScreen img {
-width: 100%;
-border-radius: 25px;
-}
-#sliderScreen{
-    position: absolute;
-padding: 1.5% 29.3% 0 29.3%;
-top: 0;
-left: 0;
-}
+
+
+ 

@@ -1,128 +1,133 @@
-@import'../../../sass/Helpers/variables';
-
-@import'../../../sass/Helpers/mixin';
-//HEADER
-
-header {
-    width: 100%;
-    position: fixed;
-	top: 0;
-    left: 0;
-    z-index: 4;
-	background-color: rgba(255,255,255,.95);
-    box-shadow: 0 0 15px rgba(0,0,0,.3);
-    .myNavbar{
-        .navbar-brand {
-            img{
-                height: 52px;
-            }
-        }
-        //TOGGLER
-        .navbar-toggler {
-            border: none;
-            padding: 0;
-            &:focus,&:active{
-                outline: none;
-            }
-            .navbar-toggler-icon {
-                width: 24px;
-                height: 17px;
-                background-image: none;
-                position: relative;
-                border-bottom: 1px solid $color-black-1;
-                &::after,&::before{
-                    width: 24px;
-                    position: absolute;
-                    height: 1px;
-                    background-color: #000;
-                    top: 0;
-                    left: 0;
-                    content: '';
-                    z-index: 2;
-                    transition: all 300ms linear;
-                }
-                &::after{
-                    top: 8px;
-                }
-            }
-
-        }
-        //TOGGLER KHI CLICK
-        .navbar-toggler[aria-expanded="true"]{
-            .navbar-toggler-icon {
-                border-color: transparent;
-                &::after{
-                    transform: rotate(45deg);
-                }
-                &::before{
-                    transform: translateY(8px) rotate(-45deg);
-                }
-            }
-        }
-        //NAV
-        .navbar-nav{
-            .nav-item { 
-                .nav-link{
-                    color:$color-black-1;
-                    font-weight: 500;
-                    margin: 0px 5px;
-                    padding: 10px 10px;
-                    position: relative;
-                    cursor: pointer;
-                    &::before{
-                        left: 0px;
-                        top: 0px;
-                        position: absolute;
-                        opacity: 0;
-                        width: 0%;
-                        height: 3px;
-                        content: '';
-                        background:linear-gradient(to right,#fbbd61,#ec7532);
-                        transition:  all .25s ease-in-out;
+            @import'../../../sass/Helpers/variables';
+            @import'../../../sass/Helpers/mixin';
+            //HEADER
+            header {
+                width: 100%;
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 4;
+                background-color: rgba(255, 255, 255, .95);
+                box-shadow: 0 0 15px rgba(0, 0, 0, .3);
+                .myNavbar {
+                    .navbar-brand {
+                        img {
+                            height: 52px;
+                        }
                     }
-                    &::after{
-                        right: 0px;
-                        bottom: 0px;
-                        position: absolute;
-                        opacity: 0;
-                        width: 0%;
-                        height: 3px;
-                        content: '';
-                        background:linear-gradient(to right,#fbbd61,#ec7532);
-                        transition:  all .25s ease-in-out;
+                    .check {
+                        color: #000;
+                        text-decoration: none;
+                        &:hover {
+                            color: #CB3429;
+                        }
                     }
-                    &:hover:before, &:hover:after{
-                        opacity: 1;
-                        width: 100%;
-                        transition:  all .25s ease-in-out;
+                    //TOGGLER
+                    .navbar-toggler {
+                        border: none;
+                        padding: 0;
+                        &:focus,
+                        &:active {
+                            outline: none;
+                        }
+                        .navbar-toggler-icon {
+                            width: 24px;
+                            height: 17px;
+                            background-image: none;
+                            position: relative;
+                            border-bottom: 1px solid $color-black-1;
+                            &::after,
+                            &::before {
+                                width: 24px;
+                                position: absolute;
+                                height: 1px;
+                                background-color: #000;
+                                top: 0;
+                                left: 0;
+                                content: '';
+                                z-index: 2;
+                                transition: all 300ms linear;
+                            }
+                            &::after {
+                                top: 8px;
+                            }
+                        }
+                    }
+                    //TOGGLER KHI CLICK
+                    .navbar-toggler[aria-expanded="true"] {
+                        .navbar-toggler-icon {
+                            border-color: transparent;
+                            &::after {
+                                transform: rotate(45deg);
+                            }
+                            &::before {
+                                transform: translateY(8px) rotate(-45deg);
+                            }
+                        }
+                    }
+                    //NAV
+                    .navbar-nav {
+                        .nav-item {
+                            .nav-link {
+                                color: $color-black-1;
+                                font-weight: 500;
+                                margin: 0px 5px;
+                                padding: 10px 10px;
+                                position: relative;
+                                cursor: pointer;
+                                &::before {
+                                    left: 0px;
+                                    top: 0px;
+                                    position: absolute;
+                                    opacity: 0;
+                                    width: 0%;
+                                    height: 3px;
+                                    content: '';
+                                    background: linear-gradient(to right, #fbbd61, #ec7532);
+                                    transition: all .25s ease-in-out;
+                                }
+                                &::after {
+                                    right: 0px;
+                                    bottom: 0px;
+                                    position: absolute;
+                                    opacity: 0;
+                                    width: 0%;
+                                    height: 3px;
+                                    content: '';
+                                    background: linear-gradient(to right, #fbbd61, #ec7532);
+                                    transition: all .25s ease-in-out;
+                                }
+                                &:hover:before,
+                                &:hover:after {
+                                    opacity: 1;
+                                    width: 100%;
+                                    transition: all .25s ease-in-out;
+                                }
+                            }
+                        }
                     }
                 }
-            } 
-        } 
-    }
- 
-}
-
-//footer
-footer{
-    background-color: #29303b;
-    .social-fb{
-        color: $color-white-0;
-        background: #3B5998;
-        width: 28px;
-        text-align: center;
-        border-radius: 2px;
-        height: 28px;
-        line-height: 28px;
-    }
-    
-    .social-yt{
-        color: white;
-        background: #CB3429;
-        width: 28px;
-        text-align: center;
-        border-radius: 2px;
-        height: 28px;
-        line-height: 28px;
-    }
-}
+            }
+            
+            //footer
+            footer {
+                background-color: #29303b;
+                .social-fb {
+                    color: $color-white-0;
+                    background: #3B5998;
+                    width: 28px;
+                    text-align: center;
+                    border-radius: 2px;
+                    height: 28px;
+                    line-height: 28px;
+                }
+                .social-yt {
+                    color: white;
+                    background: #CB3429;
+                    width: 28px;
+                    text-align: center;
+                    border-radius: 2px;
+                    height: 28px;
+                    line-height: 28px;
+                }
+            }

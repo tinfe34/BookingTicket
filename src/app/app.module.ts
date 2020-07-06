@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Cấu hình header với token ở phần ticket room
 import { AuthInterceptor } from './_core/guard/jwt.interceptor';
+import { RouteEventsService } from './_core/services/route-events.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthInterceptor } from './_core/guard/jwt.interceptor';
   ],
   providers: [
     //Cấu hình provide ở phần ticket room
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    RouteEventsService
   ],
   bootstrap: [AppComponent]
 })

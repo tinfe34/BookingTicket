@@ -1,74 +1,73 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-md-9">
-            <div class="content-left my-5">
+<div class="ticker-room">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 col-md-9">
+                <div class="content-left my-5">
 
-                <img src="https://tix.vn/app/assets/img/icons/screen.png" alt="">
-                <div class="seats  my-3">
-                    <app-seat (datGheOutPut)="datGhe($event)"
-                        *ngFor="let ghe of thongTinPhongVe.danhSachGhe;let i = index" [gheInput]="ghe">
-                        <br *ngIf="(i+1)%16===0" />
-                    </app-seat>
-                </div>
-                <div class="typeseats">
-                    <div class="seat_blue m-3">
-                        <button></button>
-                        <p>Ghế thường</p>
+                    <img src="https://tix.vn/app/assets/img/icons/screen.png" alt="">
+                    <div class="seats my-3">
+                        <app-seat (datGheOutPut)="datGhe($event)" *ngFor="let ghe of thongTinPhongVe.danhSachGhe;let i = index" [gheInput]="ghe">
+                            <br *ngIf="(i+1)%16===0" />
+                        </app-seat>
                     </div>
-                    <div class="seat_green  m-3">
-                        <button></button>
-                        <p>Ghế đang chọn</p>
-                    </div>
-                    <div class="seat_orange  m-3">
-                        <button></button>
-                        <p>Ghế vip</p>
-                    </div>
-                    <div class="seat_red  m-3">
-                        <button disabled></button>
-                        <p>Ghế đã có người</p>
-                    </div>
+                    <div class="type">
+                        <div class="seat_blue m-3">
+                            <button></button>
+                            <p>Ghế thường</p>
+                        </div>
+                        <div class="seat_green  m-3">
+                            <button></button>
+                            <p>Ghế đang chọn</p>
+                        </div>
+                        <div class="seat_orange  m-3">
+                            <button></button>
+                            <p>Ghế vip</p>
+                        </div>
+                        <div class="seat_red  m-3">
+                            <button disabled></button>
+                            <p>Ghế đã có người</p>
+                        </div>
 
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-3">
-            <div class="content-right">
-                <h3 class="total">{{tinhTongTien() | number}} VNĐ</h3>
-                <p class="title">{{thongTinPhongVe.thongTinPhim?.tenPhim}}</p>
-                <img [src]="thongTinPhongVe.thongTinPhim?.hinhAnh" alt="" style="height:150px;width:150px; border-radius: 5px;">
-                <p class="pt-3">{{thongTinPhongVe.thongTinPhim?.tenCumRap}}</p>
-                <p class="ttphim">{{thongTinPhongVe.thongTinPhim?.tenRap}}
-                    -{{thongTinPhongVe.thongTinPhim?.ngayChieu | date:'dd/MM/yyyy'}}
-                    -{{thongTinPhongVe.thongTinPhim?.ngayChieu | date:'hh:mm'}}
-                </p>
+            <div class="col-12 col-md-3">
+                <div class="content-right">
+                    <h3 class="total">{{tinhTongTien() | number}} VNĐ</h3>
+                    <p class="title">{{thongTinPhongVe.thongTinPhim?.tenPhim}}</p>
+                    <img [src]="thongTinPhongVe.thongTinPhim?.hinhAnh" alt="" style="height:150px;width:150px; border-radius: 5px;">
+                    <p class="pt-3">{{thongTinPhongVe.thongTinPhim?.tenCumRap}}</p>
+                    <p class="ttphim">{{thongTinPhongVe.thongTinPhim?.tenRap}} -{{thongTinPhongVe.thongTinPhim?.ngayChieu | date:'dd/MM/yyyy'}} -{{thongTinPhongVe.thongTinPhim?.ngayChieu | date:'hh:mm'}}
+                    </p>
 
-                <p style="color:#fb4226">Ghế
-                    <ng-container *ngFor="let gheDangDat of dsGheDangDat">
-                        {{gheDangDat.stt}},</ng-container>
-                </p>
+                    <p style="color:#fb4226">Ghế
+                        <ng-container *ngFor="let gheDangDat of dsGheDangDat">
+                            {{gheDangDat.stt}},</ng-container>
+                    </p>
 
-                <p style="color:#44c020">{{tinhTongTien() | number}} VNĐ</p>
+                    <p style="color:#44c020">{{tinhTongTien() | number}} VNĐ</p>
 
-                <br>
-                <button class="btn btn-info" (click)="datVe()" style="width: 100%;height: 40px;">ĐẶT VÉ</button>
+                    <br>
+                    <button class="btn btn-info" (click)="datVe()" style="width: 100%;height: 40px;">ĐẶT VÉ</button>
+                </div>
             </div>
-        </div>
-        <div class="col-12">
-            <div class="content-footer" >
-                <div class="row">
-                    <div class="col-6">
-                        <p style="color:#fb4226;margin:10px">Ghế
-                            <ng-container *ngFor="let gheDangDat of dsGheDangDat">
-                                {{gheDangDat.stt}},</ng-container>
-                        </p>
-                    </div>
-                    <div class="col-6">
-                        <button class="btn btn-info" (click)="datVe()" style="width: 100%;height: 70px;border:none">ĐẶT VÉ</button>
+            <div class="col-12">
+                <div class="content-footer">
+                    <div class="row">
+                        <div class="col-6">
+                            <span style="color:#fb4226;margin:10px">Ghế
+                                <ng-container *ngFor="let gheDangDat of dsGheDangDat">
+                                    {{gheDangDat.stt}},</ng-container>
+                                </span>
+                            <p class="total">{{tinhTongTien() | number}} VNĐ</p>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-info" (click)="datVe()" style="width: 100%;height: 70px;border:none">ĐẶT VÉ</button>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   
 </div>

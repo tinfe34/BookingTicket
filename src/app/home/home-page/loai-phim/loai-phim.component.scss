@@ -3,8 +3,8 @@
         border: white;
         .nav-link {
             position: relative;
-            color: #333;
-            display: block;
+            color: #fff;
+            background-color: none;
             padding: 10px 20px 15px;
             letter-spacing: 1px;
             border: none;
@@ -14,7 +14,7 @@
                 content: '';
                 width: 0;
                 height: 3px;
-                background: linear-gradient(to right, #fb4226, #fff);
+                background: linear-gradient(to right, #fbbd61, #ec7532);
                 position: absolute;
                 left: 0;
                 bottom: -1px;
@@ -22,7 +22,8 @@
             }
         }
         .active {
-            color: #fb4226;
+            color: #fbbd61;
+            background-color: #000;
             transition: all 0.5s;
             &::after {
                 width: 100%;

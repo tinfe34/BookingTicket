@@ -1,4 +1,4 @@
-.ghe{
+.ghe {
     color: #fff;
     border-radius: 5px;
     transition: all 0.2s ease;
@@ -13,44 +13,37 @@
     margin: 10px;
     cursor: pointer;
     transition: 0.1s ease;
+    &:hover {
+        background: linear-gradient(to right, #44c020, #44c020);
+        box-shadow: 0 0 10px#44c020;
+    }
+    &:focus {
+        outline: none;
+    }
 }
 
-
-.ghe:hover{
-    background: linear-gradient(to right,#44c020,#44c020);
-    box-shadow: 0 0 10px#44c020;
-    
-}
-
-
-.gheVip{
-    background: linear-gradient(to right,#fbbd61,#ec7532);
+.gheVip {
+    background: linear-gradient(to right, #fbbd61, #ec7532);
     box-shadow: 0 0 5px#ec7532;
-
-
 }
 
-.gheDaDat{
-    background: linear-gradient(to right,red,red);
+.gheDaDat {
+    background: linear-gradient(to right, red, red);
     opacity: 0.3;
     cursor: no-drop;
+    &:hover {
+        background: linear-gradient(to right, red, red);
+        box-shadow: none;
+        height: 30px;
+        width: 30px;
+        line-height: 13px;
+    }
 }
-.gheDaDat:hover{
-    background: linear-gradient(to right,red,red);
-    box-shadow: none;
+
+.gheDangDat {
+    background: linear-gradient(to right, #44c020, #44c020);
+    box-shadow: 0 0 10px#44c020;
     height: 30px;
     width: 30px;
-    line-height: 13px;
-}
-
-.gheDangDat{
-     background: linear-gradient(to right,#44c020,#44c020);
-     box-shadow: 0 0 10px#44c020;
-     height: 30px;
-     width: 30px;
-     font-size: 13px;
-}
-
-button:focus {
-    outline: none;
+    font-size: 13px;
 }
