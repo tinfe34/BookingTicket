@@ -24,7 +24,7 @@ sttArr:number  = 100;
       dangDat: this.dangDat,
       stt:this.gheInput.stt
     }
-    console.log(gheDangDat)
+    // console.log(gheDangDat)
     this.datGheOutPut.emit(gheDangDat);
     }
 

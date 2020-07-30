@@ -1,22 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { QuanLyPhimService } from 'src/app/_core/services/quan-ly-phim.service';
 import swal from 'sweetalert';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-ticket-room',
   templateUrl: './ticket-room.component.html',
   styleUrls: ['./ticket-room.component.scss']
 })
-export class TicketRoomComponent implements OnInit {
+export class TicketRoomComponent implements OnInit,OnDestroy {
 
   public maLichChieu:number = 0;
   public thongTinPhongVe:any = {};
   public dsGheDangDat :any [] = [];
 
+  public subParam:Subscription;
+  public subService:Subscription;
 
   constructor(private atv: ActivatedRoute, private filmService:QuanLyPhimService) { 
      //Lấy thông tin param từ url thông qua đối tượng atv
-     this.atv.params.subscribe((params)=>{
+     this.subParam = this.atv.params.subscribe((params)=>{
       this.maLichChieu = params.maLichChieu;
       //Gọi service lấy thông tin phòng vé từ api 
       this.layThongTinPhongVe(this.maLichChieu);
@@ -24,7 +27,7 @@ export class TicketRoomComponent implements OnInit {
   }
 
   public layThongTinPhongVe(maLichChieu:number){
-    this.filmService.LayChiTietPhongVe(maLichChieu).subscribe((res:any) => {
+    this.subService =  this.filmService.LayChiTietPhongVe(maLichChieu).subscribe((res:any) => {
       console.log(res)
       this.thongTinPhongVe = res;
 
@@ -51,26 +54,26 @@ export class TicketRoomComponent implements OnInit {
       "danhSachVe": this.dsGheDangDat,
       "taiKhoanNguoiDung": userLogin.taiKhoan
     }
-    console.log(objectDatVe);
+    // console.log(objectDatVe);
 
 if(this.dsGheDangDat.length != 0){
   this.filmService.datVe(objectDatVe).subscribe((res:any)=>{
     swal({
       icon: "success",
-       title: "Dat ve thanh cong",
+       title: "ĐẶT VÉ THÀNH CÔNG",
     }).then(res=>{
-      location.reload();
+     location.reload();
     });
   },err=>{
     swal({
       icon: "error",
-       title: "dat ve that bai",
+       title: "ĐẶT VÉ THẤT BẠI",
     })
   })
 }
 swal({
       icon: "error",
-       title: "Vui long chon ghe",
+       title: "VUI LÒNG CHỌN GHẾ",
     })
   }
   tinhTongTien(){
@@ -78,7 +81,14 @@ swal({
       return tongTien += Number(ghe.giaVe);
     },0)
   }
-
+ ngOnDestroy(){
+   if(this.subParam){
+    this.subParam.unsubscribe();
+   }
+   if(this.subService){
+    this.subService.unsubscribe();
+   }
+ }
 }
 
 

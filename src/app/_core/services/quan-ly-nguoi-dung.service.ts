@@ -37,4 +37,12 @@ export class QuanLyNguoiDungService {
     let ob: any = this.http.post(`${setting.domain}/QuanLyNguoiDung/ThongTinTaiKhoan`, taiKhoan, { headers: header, responseType: 'json' })
     return ob;
   }
+  public UpdateProfile(obj:any): Observable<any[]> {
+    //Thực hiện giao thức post bên angular
+    let header: HttpHeaders = new HttpHeaders();
+    //Định nghĩa dữ liệu người dùng gửi đi là json object,server sẽ trả về obj kèm token
+    header.append('Content-Type', 'application/json');
+    let ob: any = this.http.put(`${setting.domain}/QuanLyNguoiDung/CapNhatThongTinNguoiDung`, obj, { headers: header, responseType: 'json' })
+    return ob;
+  }
 }

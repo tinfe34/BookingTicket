@@ -41,7 +41,7 @@ const homeRoute: Routes = [
       { path: 'profile', component: ProfileComponent,canActivate:[IsLoginGuard] },
       { path: 'booking-hictory', component: BookingHistoryComponent,canActivate:[IsLoginGuard] },
       { path: 'detail-films/:maPhim', component: FilmDetailComponent },
-    
+     
     ]
   },
 ]

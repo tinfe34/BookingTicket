@@ -1,19 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { QuanLyPhimService } from 'src/app/_core/services/quan-ly-phim.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-showing-detail',
   templateUrl: './showing-detail.component.html',
   styleUrls: ['./showing-detail.component.scss']
 })
-export class ShowingDetailComponent implements OnInit {
+export class ShowingDetailComponent implements OnInit,OnDestroy {
 
-  rapPhim:any = [];
-  lichChieu:any = [];
+  public rapPhim:Array<Object> = [];
+  public lichChieu:Object[] = [];
+  public subServiceHTR:Subscription;
+  public subServiceLC:Subscription;
+  
   constructor(private phimService:QuanLyPhimService) { }
 
   ngOnInit(): void {
-    this.phimService.LayThongTinHeThongRap().subscribe(
+   this.subServiceHTR = this.phimService.LayThongTinHeThongRap().subscribe(
       (result)=>{
         this.rapPhim = result;
         console.log(result)
@@ -22,13 +26,27 @@ export class ShowingDetailComponent implements OnInit {
         console.log(err)
       }
     );
-    this.phimService.LayThongTinLichChieu().subscribe(
+   this.subServiceLC = this.phimService.LayThongTinLichChieu().subscribe(
       (result)=>{
         this.lichChieu = result;
-        console.log(result)
+        // console.log(result)
       },
       (err)=>{
         console.log(err)
       })
+      // console.log(this.subServiceHTR)
+      // console.log(this.subServiceLC)
+
+  }
+
+  ngOnDestroy(): void {
+    if(this.subServiceHTR){
+      this.subServiceHTR.unsubscribe();
+      // console.log(this.subServiceHTR)
+    }
+    if( this.subServiceLC ){
+    this.subServiceLC.unsubscribe();
+    // console.log(this.subServiceLC)
+    }
   }
 }

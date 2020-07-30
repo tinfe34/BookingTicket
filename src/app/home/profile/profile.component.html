@@ -1,31 +1,39 @@
 <section class="profile">
-    <div class="container py-3" style="width:50%;margin:auto">
-        <h3 class="text-center my-3">Thông tin cá nhân</h3>
-        <div class="form-group">
-            <label for="">Tài Khoản</label>
-            <input type="text" name="" id="" disabled value="{{objUser.taiKhoan}}" class="form-control" placeholder="" aria-describedby="helpId">
-        </div>
-        <div class="form-group">
-            <label for="">Mật Khẩu</label>
-            <input type="password" name="" id="" [disabled]="isDisabled" value="{{objUser.matKhau}}" class="form-control" placeholder="" aria-describedby="helpId">
-        </div>
-        <div class="form-group">
-            <label for="">Số Điện Thoại</label>
-            <input type="text" name="" id="" [disabled]="isDisabled" value=" {{objUser.soDT}} " class="form-control " placeholder=" " aria-describedby="helpId ">
-        </div>
+    <form #frmUser="ngForm" (ngSubmit)="profile(frmUser.value)">
+        <div class="container py-3" style="width:50%;margin:auto">
+            <h3 class="text-center my-3">Thông tin cá nhân</h3>
+            <div class="form-group">
+                <label for="">Tài Khoản</label>
+                <input type="text" id="" name='taiKhoan' ngModel readonly #taiKhoan='ngModel' class="form-control " placeholder=" " aria-describedby="helpId ">
+            </div>
+            <div class="form-group">
+                <label for="" hidden>Mã Nhóm</label>
+                <input type="text" id="" hidden name='maNhom' ngModel readonly #maNhom='ngModel' class="form-control " placeholder=" " aria-describedby="helpId ">
+            </div>
 
-        <div class="form-group ">
-            <label for=" ">Họ Tên</label>
-            <input type="text " name=" " id=" " [disabled]="isDisabled " value="{{objUser.hoTen}} " class="form-control " placeholder=" " aria-describedby="helpId ">
+            <div class="form-group ">
+                <label for=" ">Mật Khẩu</label>
+                <input type="password " id=" " [disabled]="isDisabled " name='matKhau' ngModel #matKhau='ngModel' class="form-control " placeholder=" " aria-describedby="helpId ">
+            </div>
+            <div class="form-group ">
+                <label for=" ">Số Điện Thoại</label>
+                <input type="text " id=" " [disabled]="isDisabled " name='soDT' ngModel #soDT='ngModel' class="form-control " placeholder=" " aria-describedby="helpId ">
+            </div>
+
+            <div class="form-group ">
+                <label for=" ">Họ Tên</label>
+                <input type="text " id=" " [disabled]="isDisabled " name='hoTen' ngModel #hoTen='ngModel' class="form-control " placeholder=" " aria-describedby="helpId ">
+            </div>
+            <div class="form-group ">
+                <label for=" ">Email</label>
+                <input type="text " id=" " [disabled]="isDisabled " name='email' ngModel #email='ngModel' class="form-control " placeholder=" " aria-describedby="helpId ">
+            </div>
+            <div class="form-group ">
+                <button type="button " class="btn btn-primary " *ngIf="isDisabled " (click)="isEdit() ">Sửa hồ sơ cá nhân</button>
+                <button type="submit " class="btn btn-success " *ngIf="!isDisabled ">Cập Nhật</button>
+            </div>
         </div>
-        <div class="form-group ">
-            <label for=" ">Email</label>
-            <input type="text " name=" " id=" " [disabled]="isDisabled " value=" {{objUser.email}} " class="form-control " placeholder=" " aria-describedby="helpId ">
-        </div>
-        <div class="form-group ">
-            <button type="button " class="btn btn-primary " *ngIf="isDisabled " (click)="isEdit() ">Sửa hồ sơ cá nhân</button>
-            <button type="button " class="btn btn-primary " *ngIf="!isDisabled ">Cập Nhật</button>
-        </div>
-    </div>
+    </form>
+
 
 </section>

@@ -8,18 +8,18 @@ import { QuanLyNguoiDungService } from 'src/app/_core/services/quan-ly-nguoi-dun
 })
 export class BookingHistoryComponent implements OnInit {
 
-  public objUser:any;
+  public hictory:any = [];
   constructor(private ngDungService: QuanLyNguoiDungService) {
     //Lấy userLogin từ localStogare đã đăng nhập và lưu trước đó
     let userLogin = JSON.parse(localStorage.getItem('userLogin'));
-    let obj: any = {
+    let obj: Object = {
       "taiKhoan": userLogin.taiKhoan,
     }
 
     this.ngDungService.Profile(obj).subscribe(
       (res: any) => {
-        this.objUser =res;
-        console.log(res)
+        this.hictory = res;
+        // console.log(res)
       }, (err) => {
         console.log(err)
       })
